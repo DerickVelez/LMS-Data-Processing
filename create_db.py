@@ -19,7 +19,6 @@ try:
         checkquery = 'SELECT * FROM Filename_Table WHERE Filename = %s'
         cursor.execute(checkquery,(file,))
         result = cursor.fetchone()
-        print(result,file)
         
         if result is None:
             cursor.execute(content)
@@ -30,7 +29,7 @@ try:
             print(f'{file} is already processed.')  
             
         connection.commit()
-        raise(Exception)
+        
         
 except psycopg2.Error as e:
         print(f"Database error: {e}")
