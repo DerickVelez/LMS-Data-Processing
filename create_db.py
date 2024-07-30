@@ -32,7 +32,7 @@ try:
         
         
 except psycopg2.Error as e:
-        print(f"Database error: {e}")
+        print(f"Database error:{file} {e}")
         if connection:
             connection.rollback() 
             
