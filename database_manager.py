@@ -5,12 +5,6 @@ from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 
 class DatabaseManager:
-    # def __init__(self):
-    #     self.dbname = os.getenv("DATABASE")
-    #     self.user =  os.getenv("USER")
-    #     self.password = os.getenv("PASSWORD")
-    #     self.host= os.getenv("HOST") 
-    #     self.port = 5432 
         
     def connect():
         try:    
