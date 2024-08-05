@@ -1,13 +1,6 @@
 from database_manager import DatabaseManager
 
-
-# conn, cur = DatabaseManager.connect_db()
-
 class Addresses(DatabaseManager):
-    # def __init__(self, address_id, current_address, permanent_address ):
-    #     self.addresss_id = address_id
-    #     self.current_address = current_address
-    #     self.permanent_address = permanent_address
 
     def create_address(self, current_address, permanent_address):
         query = "INSERT INTO Addresses(current_address, permanent_address) VALUES (%s, %s)"
@@ -25,12 +18,12 @@ class Addresses(DatabaseManager):
 
     def delete_address(self, address_id):
         query = "DELETE FROM Addresses WHERE address_id = %s"
-        parameter = address_id
+        parameter = str(address_id)
         self.execute_command(query,parameter)
 
     def get_by_id(self, address_id):
         query = "SELECT * FROM Addresses WHERE address_id = %s"
-        parameter = address_id
+        parameter = str(address_id)
         single =  True
         self.execute_query(query,parameter,single)
 
