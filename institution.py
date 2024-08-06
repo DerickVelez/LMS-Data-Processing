@@ -29,8 +29,8 @@ class Institution(DatabaseManager):
 
 ad = Institution()
 
-# ad.create_institution("fadsf","dasff",'dsfsd','asdf', 'asdfa')
+ad.create_institution("superhero","dasff",'dsfsd','asdf', 'asdfa')
 # ad.update_institution('alkdjf',';lkadj',2)
-ad.delete_institution("sdsd")
+# ad.delete_institution("sdsd")
 # # ad.read_institution()
 # ad.get_by_name("sdsd")

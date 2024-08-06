@@ -30,7 +30,7 @@ class Semesters(DatabaseManager):
         
 ad = Semesters()
 
-# ad.create_semesters(5,'1999-12-13','2000-01-25')
+ad.create_semesters(1,'1999-12-13','2000-01-25')
 # ad.update_semesters('hello',2),
 # ad.delete_semesters(2)
 # ad.read_semesters()
