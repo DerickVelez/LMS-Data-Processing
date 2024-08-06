@@ -29,7 +29,7 @@ class StudentEnrollment(DatabaseManager):
 
 ad = StudentEnrollment()
 
-# ad.create_student_enrollment(2,2,2, 'fadsf')
+ad.create_student_enrollment(2,2,2, 'fadsf')
 # ad.update_student_enrollment(1,1,1,"superhero",1)
 # # ad.delete_student_enrollment("sdsd")
 # ad.read_student_enrollment()
