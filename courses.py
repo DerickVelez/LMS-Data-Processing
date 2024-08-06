@@ -31,8 +31,8 @@ class Courses(DatabaseManager):
 ad = Courses()
 
 # ad.create_courses('dsafa', 'sdsd')
-ad.update_courses('sdfs', 'hello',2)
+# ad.update_courses('sdfs', 'hello',2)
 # ad.delete_courses('1')
 # ad.read_courses()
-# ad.get_by_id('2') 
+ad.get_by_id(2) 
 # # print(ad.get_by_id('5') )

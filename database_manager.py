@@ -34,7 +34,7 @@ class DatabaseManager:
         conn, cur = self.connect_db()
         try:             
             with conn.cursor() as curs:
-                curs.execute(query,(parameter))
+                curs.execute(query,(parameter,))
                 print("command executed successfully")
                     
         except(Exception) as error:
@@ -50,7 +50,7 @@ class DatabaseManager:
         try: 
             if single: 
                 with conn.cursor() as curs:
-                    curs.execute(query,(parameter))
+                    curs.execute(query,(parameter,))
                     print("query executed successfully")
                     data = curs.fetchone()
                     print(data)

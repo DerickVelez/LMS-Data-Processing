@@ -12,7 +12,7 @@ class Addresses(DatabaseManager):
         self.execute_query(query)
 
     def update_address(self, current_address, permanent_address, address_id):
-        query = "UPDATE Addresses SE T current_address =  %s , permanent_address = %s WHERE addressid = %s"
+        query = "UPDATE Addresses SET current_address =  %s , permanent_address = %s WHERE address_id = %s"
         parameter = (current_address, permanent_address, address_id)
         self.execute_command(query,parameter)
 
@@ -31,6 +31,6 @@ ad = Addresses()
 
 # ad.create_address("sdsd","dasff")
 # ad.update_address('alkdjf',';lkadj',2)
-
+ad.delete_address(2)
 # ad.read_address()
-ad.get_by_id('2')
+ad.get_by_id(2)
