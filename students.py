@@ -11,26 +11,26 @@ class Students(DatabaseManager):
         query = "SELECT * FROM Students"
         self.execute_query(query)
 
-    def update_students(self, Students_name, Students_type, region, province, municipality):
-        query = "UPDATE Students SET Students_type =  %s , region = %s, province = %s, municipality = %s WHERE Students_name = %s"
-        parameter = (Students_name, Students_type, region, province, municipality)
+    def update_students(self, current_address_id, permanent_address_id, gender, first_name, middle_name, last_name, cellnumber, email, student_id):
+        query = "UPDATE Students SET current_address_id = %s, permanent_address_id = %s, gender = %s, first_name = %s, middle_name = %s, last_name = %s, cellnumber = %s, email= %s WHERE student_id = %s"
+        parameter = (current_address_id, permanent_address_id, gender, first_name, middle_name, last_name, cellnumber, email, student_id)
         self.execute_command(query,parameter)
 
-    def delete_students(self, Students_name):
-        query = "DELETE FROM Students WHERE Students_name = %s"
-        parameter = Students_name
-        self.execute_command(query,parameter)
+    def delete_students(self, student_id):
+        query = "DELETE FROM Students WHERE student_id = %s"
+        parameter = student_id
+        self.execute_command(query,parameter,True)
 
-    def get_by_id(self, Students_name):
-        query = "SELECT * FROM Students WHERE Students_name = %s"
-        single =  True
-        parameter = Students_name
-        self.execute_query(query,parameter, single)
+    def get_by_id(self, student_id):
+        query = "SELECT * FROM Students WHERE student_id = %s"
+        fetch_one =  True
+        parameter = student_id
+        self.execute_query(query,parameter, fetch_one, True)
 
 ad = Students()
 
-ad.create_students(1,1,'m','jan', 'derick','velez',165465,'sdfas')
-# ad.update_students('alkdjf',';lkadj',2)
+# ad.create_students(1,1,'m','jan', 'derick','velez',165465,'sdfas')
+ad.update_students(1,1,'m','jan', 'pogi','velez',165465,'sdfas',1)
 # ad.delete_students("sdsd")
-# # ad.read_students()
-# ad.get_by_id("sdsd")
+ad.read_students()
+# ad.get_by_id(1)
