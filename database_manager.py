@@ -30,11 +30,15 @@ class DatabaseManager:
             print("Error while connecting to Postgresql table.", error)
         return  conn , cur
     
-    def execute_command(self, query,parameter):
+    def execute_command(self, query,parameter,single = False):
         conn, cur = self.connect_db()
-        try:             
-            with conn.cursor() as curs:
-                curs.execute(query,(parameter,))
+        
+        try: 
+            with conn.cursor() as curs:            
+                if single: #if single parameter.
+                    curs.execute(query,(parameter,))
+                else:   #if multiple parameters.
+                    curs.execute(query,(parameter))
                 print("command executed successfully")
                     
         except(Exception) as error:
@@ -45,19 +49,25 @@ class DatabaseManager:
         cur.close()
         conn.close()
         
-    def execute_query(self, query,parameter=None, single = False):
+    def execute_query(self, query,parameter=None, fetch_one = False, single = False):
         conn, cur = self.connect_db()
         try: 
-            if single: 
+            if fetch_one: 
                 with conn.cursor() as curs:
-                    curs.execute(query,(parameter,))
+                    if single: #if single parameter.
+                        curs.execute(query,(parameter,))
+                    else:
+                        curs.execute(query,(parameter))
                     print("query executed successfully")
                     data = curs.fetchone()
                     print(data)
                         
             else: 
                 with conn.cursor() as curs:
-                    curs.execute(query,(parameter))
+                    if single: #if single parameter.
+                        curs.execute(query,(parameter,))
+                    else:
+                        curs.execute(query,(parameter))
                     print("query executed successfully")
                     data = curs.fetchall()
                     print(data)

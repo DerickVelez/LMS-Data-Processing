@@ -23,9 +23,9 @@ class Institution(DatabaseManager):
 
     def get_by_name(self, institution_name):
         query = "SELECT * FROM Institution WHERE institution_name = %s"
-        single =  True
+        fetch_one =  True
         parameter = institution_name
-        self.execute_query(query,parameter, single)
+        self.execute_query(query,parameter, fetch_one)
 
 ad = Institution()
 

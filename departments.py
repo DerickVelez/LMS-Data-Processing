@@ -25,12 +25,13 @@ class Departments(DatabaseManager):
     def get_by_id(self, department_id ):
         query = "SELECT * FROM Departments WHERE department_id = %s"
         parameter = str(department_id)
-        single = True
-        self.execute_query(query,parameter,single)
+        fetch_one = True
+        self.execute_query(query,parameter,fetch_one)
         
 ad = Departments()
 
-# ad.create_department('dsafa', 'sdsd')
+
+ad.create_department('dsafa', 'sdsd')
 # ad.update_department('hello',2)
 # ad.delete_department('1')
 # ad.read_department()

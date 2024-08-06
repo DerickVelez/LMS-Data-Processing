@@ -20,17 +20,18 @@ class Courses(DatabaseManager):
     def delete_courses(self, course_id):
         query = "DELETE FROM Courses WHERE course_id = %s"
         parameter = str(course_id)
-        self.execute_command(query,parameter)
+        single = True
+        self.execute_command(query,parameter,single)
         
     def get_by_id(self, course_id ):
         query = "SELECT * FROM Courses WHERE course_id = %s"
         parameter = str(course_id)
-        single = True
-        self.execute_query(query,parameter,single)
+        fetch_one = True
+        self.execute_query(query,parameter,fetch_one)
         
 ad = Courses()
 
-# ad.create_courses('dsafa', 'sdsd')
+ad.create_courses('dsafa', 'sdsd')
 # ad.update_courses('sdfs', 'hello',2)
 # ad.delete_courses('1')
 # ad.read_courses()

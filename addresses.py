@@ -24,13 +24,13 @@ class Addresses(DatabaseManager):
     def get_by_id(self, address_id):
         query = "SELECT * FROM Addresses WHERE address_id = %s"
         parameter = str(address_id)
-        single =  True
-        self.execute_query(query,parameter,single)
+        fetch_one =  True
+        self.execute_query(query,parameter,fetch_one)
 
 ad = Addresses()
 
 # ad.create_address("sdsd","dasff")
 # ad.update_address('alkdjf',';lkadj',2)
-ad.delete_address(2)
+ad.delete_address(4)
 # ad.read_address()
-ad.get_by_id(2)
+# ad.get_by_id(2)
