@@ -2,6 +2,8 @@
 *.log
 *.env
 *.xlsx
+*.venv
+
 
 # ignore ALL files in ANY directory named temp
 temp/
