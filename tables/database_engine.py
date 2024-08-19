@@ -30,17 +30,20 @@ class DatabaseManager:
             print("Error while connecting to Postgresql table.", error)
         return  conn , cur
     
-    def execute_command(self, query,parameter,single = False):
+    def execute_command(self, query,parameter, single = False):
         conn, cur = self.connect_db()
         
         try: 
-            with conn.cursor() as curs:            
-                if single: #if single parameter.
+            with conn.cursor() as curs:
+                if single:
                     curs.execute(query,(parameter,))
-                else:   #if multiple parameters.
-                    curs.execute(query,(parameter))
-                print("command executed successfully")
+                    print("command executed successfully")
+                else:
+                    curs.execute(query,parameter)
+                    print("command executed successfully")
                     
+                    
+                        
         except(Exception) as error:
             print(error) 
             conn.rollback
@@ -58,9 +61,11 @@ class DatabaseManager:
                         curs.execute(query,(parameter,))
                     else:
                         curs.execute(query,(parameter))
+                        
                     print("query executed successfully")
                     data = curs.fetchone()
                     print(data)
+                    return data
                         
             else: 
                 with conn.cursor() as curs:
@@ -68,9 +73,11 @@ class DatabaseManager:
                         curs.execute(query,(parameter,))
                     else:
                         curs.execute(query,(parameter))
+                        
                     print("query executed successfully")
                     data = curs.fetchall()
                     print(data)
+                    return data
                 
         except(Exception) as error:
             print(error) 
@@ -79,3 +86,6 @@ class DatabaseManager:
         cur.close()
         conn.close()
  
+    def successcommand(self):
+        conn = self.connect_db()
+        conn.c

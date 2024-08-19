@@ -1,4 +1,4 @@
-from database_manager import DatabaseManager
+from tables.database_engine import DatabaseManager
 
 
 class DegreeProgramsRepository(DatabaseManager):

@@ -1,5 +1,4 @@
-from database_manager import DatabaseManager
-
+from tables.database_engine import DatabaseManager
 
 class CoursesRepository(DatabaseManager):
         
@@ -29,11 +28,6 @@ class CoursesRepository(DatabaseManager):
         fetch_one = True
         self.execute_query(query,parameter,fetch_one)
         
-ad = Courses()
-
-ad.create_courses('dsafa', 'sdsd')
-# ad.update_courses('sdfs', 'hello',2)
-# ad.delete_courses('1')
-# ad.read_courses()
-ad.get_by_id(2) 
-# # print(ad.get_by_id('5') )
+# ad = Co
+# 
+# nt(ad.get_by_id('5') )

@@ -5,7 +5,7 @@ from datetime import datetime, date, time
         
         
 class Addresses(BaseModel):
-    address_id: int
+    address_id: int 
     current_address: str
     permanent_address: str
     

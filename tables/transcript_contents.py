@@ -1,8 +1,7 @@
-from database_manager import DatabaseManager
+from tables.database_engine import DatabaseManager
 
 
-class TranscriptContentsRepository
-(DatabaseManager):
+class TranscriptContentsRepository(DatabaseManager):
         
     def create_transcript_contents(self, student_course_id):
         query = "INSERT INTO transcript_contents(student_course_id) VALUES (%s)"

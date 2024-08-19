@@ -16,7 +16,7 @@
 # for table in cursor.fetchall():
 #     print(table)
 
-from database_manager import connect
+from tables.database_engine import connect
 
 if __name__ == "populate_data.py":
        connect()
